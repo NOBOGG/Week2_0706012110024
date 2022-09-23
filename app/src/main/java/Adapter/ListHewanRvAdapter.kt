@@ -67,13 +67,6 @@ class ListHewanRvAdapter(val listHewan:ArrayList<Hewan>):
         }
         holder.binding.soundImgbutton.setOnClickListener {
             Toast.makeText(it.context, listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
-//            if(GlobalVar.listDataHewan.get(position) is Ayam){
-//                Toast.makeText(it.context, GlobalVar.listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
-//            }else if(GlobalVar.listDataHewan.get(position) is Sapi){
-//                Toast.makeText(it.context, GlobalVar.listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
-//            }else if(GlobalVar.listDataHewan.get(position) is Kambing){
-//                Toast.makeText(it.context, GlobalVar.listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
-//            }
         }
         holder.binding.foodImgbutton.setOnClickListener {
             if(listDataHewan.get(position) is Ayam){
