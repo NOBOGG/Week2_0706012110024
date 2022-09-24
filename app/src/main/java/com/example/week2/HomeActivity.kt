@@ -3,7 +3,13 @@ package com.example.week2
 import Adapter.ListHewanRvAdapter
 import Database.GlobalVar
 import Database.GlobalVar.Companion.listDataHewan
+import Database.GlobalVar.Companion.filter
+import Model.Ayam
+import Model.Hewan
+import Model.Kambing
+import Model.Sapi
 import android.content.Intent
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isInvisible
@@ -13,7 +19,9 @@ import com.example.week2.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 
-    private val adapter= ListHewanRvAdapter(listDataHewan)
+    private var adapter= ListHewanRvAdapter(listDataHewan)
+    private var adapter2 = ListHewanRvAdapter(filter)
+
     private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,8 +44,39 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        hidetext()
+        filter.clear()
+        binding.ayamFilterbutton.setOnClickListener {
+            filter.clear()
+            for (item in listDataHewan){
+                if (item is Ayam){
+                    filter.add(item)
+                }
+            }
+            binding.listHewanRV.adapter = adapter2
+        }
+        binding.sapiFilterbutton.setOnClickListener {
+            filter.clear()
+            for (item in listDataHewan){
+                if (item is Sapi){
+                    filter.add(item)
+                }
+            }
+            binding.listHewanRV.adapter = adapter2
+        }
+        binding.kambingFilterbutton.setOnClickListener {
+            filter.clear()
+            for (item in listDataHewan){
+                if (item is Kambing){
+                    filter.add(item)
+                }
+            }
+            binding.listHewanRV.adapter = adapter2
+        }
+
         adapter.notifyDataSetChanged()
     }
+
 
     private fun hidetext(){
         if(listDataHewan.isEmpty()){
