@@ -67,11 +67,11 @@ class ListHewanRvAdapter(val listHewan:ArrayList<Hewan>):
         }
         holder.binding.soundImgbutton.setOnClickListener {
             if(GlobalVar.filter.isEmpty()){
-                if(listDataHewan.get(position) is Ayam || GlobalVar.filter.get(position) is Ayam){
+                if(listDataHewan.get(position) is Ayam ){
                     Toast.makeText(it.context, listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
-                }else if(listDataHewan.get(position) is Sapi || GlobalVar.filter.get(position) is Sapi){
+                }else if(listDataHewan.get(position) is Sapi ){
                     Toast.makeText(it.context, listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
-                }else if(listDataHewan.get(position) is Kambing || GlobalVar.filter.get(position) is Kambing){
+                }else if(listDataHewan.get(position) is Kambing ){
                     Toast.makeText(it.context, listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
                 }
             }
@@ -86,11 +86,11 @@ class ListHewanRvAdapter(val listHewan:ArrayList<Hewan>):
             }
             holder.binding.foodImgbutton.setOnClickListener {
                 if(GlobalVar.filter.isEmpty()){
-                    if(listDataHewan.get(position) is Ayam || GlobalVar.filter.get(position) is Ayam){
+                    if(listDataHewan.get(position) is Ayam ){
                         Toast.makeText(it.context, listDataHewan.get(position).feedAnimal(seed = String()), Toast.LENGTH_SHORT).show()
-                    }else if(listDataHewan.get(position) is Sapi || GlobalVar.filter.get(position) is Sapi){
+                    }else if(listDataHewan.get(position) is Sapi ){
                         Toast.makeText(it.context, listDataHewan.get(position).feedAnimal(grass = 0), Toast.LENGTH_SHORT).show()
-                    }else if(listDataHewan.get(position) is Kambing || GlobalVar.filter.get(position) is Kambing){
+                    }else if(listDataHewan.get(position) is Kambing ){
                         Toast.makeText(it.context, listDataHewan.get(position).feedAnimal(grass = 0), Toast.LENGTH_SHORT).show()
                     }
                 }else{
