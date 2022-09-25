@@ -74,6 +74,7 @@ class HomeActivity : AppCompatActivity() {
             binding.listHewanRV.adapter = adapter2
         }
         binding.resetFilterbutton.setOnClickListener {
+            filter.clear()
             binding.listHewanRV.adapter=adapter
         }
 
