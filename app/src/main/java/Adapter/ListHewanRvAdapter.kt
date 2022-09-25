@@ -66,14 +66,44 @@ class ListHewanRvAdapter(val listHewan:ArrayList<Hewan>):
             it.context.startActivity(intent)
         }
         holder.binding.soundImgbutton.setOnClickListener {
-            Toast.makeText(it.context, listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
+            if(GlobalVar.filter.isEmpty()){
+                if(listDataHewan.get(position) is Ayam || GlobalVar.filter.get(position) is Ayam){
+                    Toast.makeText(it.context, listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
+                }else if(listDataHewan.get(position) is Sapi || GlobalVar.filter.get(position) is Sapi){
+                    Toast.makeText(it.context, listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
+                }else if(listDataHewan.get(position) is Kambing || GlobalVar.filter.get(position) is Kambing){
+                    Toast.makeText(it.context, listDataHewan.get(position).animalSound(), Toast.LENGTH_SHORT).show()
+                }
+            }
+            else{
+                if(GlobalVar.filter.get(position) is Ayam){
+                    Toast.makeText(it.context, GlobalVar.filter.get(position).animalSound(), Toast.LENGTH_SHORT).show()
+                }else if(GlobalVar.filter.get(position) is Sapi){
+                    Toast.makeText(it.context, GlobalVar.filter.get(position).animalSound(), Toast.LENGTH_SHORT).show()
+                }else if(GlobalVar.filter.get(position) is Kambing){
+                    Toast.makeText(it.context, GlobalVar.filter.get(position).animalSound(), Toast.LENGTH_SHORT).show()
+                }
             }
             holder.binding.foodImgbutton.setOnClickListener {
-                if(listDataHewan.get(position) is Ayam){
-                    Toast.makeText(it.context, listDataHewan.get(position).feedAnimal(listDataHewan.get(position).feedAnimal(seed = String())), Toast.LENGTH_SHORT).show()
-                }else {
-                    Toast.makeText(it.context, listDataHewan.get(position).feedAnimal(grass = 0), Toast.LENGTH_SHORT).show()
+                if(GlobalVar.filter.isEmpty()){
+                    if(listDataHewan.get(position) is Ayam || GlobalVar.filter.get(position) is Ayam){
+                        Toast.makeText(it.context, listDataHewan.get(position).feedAnimal(seed = String()), Toast.LENGTH_SHORT).show()
+                    }else if(listDataHewan.get(position) is Sapi || GlobalVar.filter.get(position) is Sapi){
+                        Toast.makeText(it.context, listDataHewan.get(position).feedAnimal(grass = 0), Toast.LENGTH_SHORT).show()
+                    }else if(listDataHewan.get(position) is Kambing || GlobalVar.filter.get(position) is Kambing){
+                        Toast.makeText(it.context, listDataHewan.get(position).feedAnimal(grass = 0), Toast.LENGTH_SHORT).show()
+                    }
+                }else{
+                    if(GlobalVar.filter.get(position) is Ayam){
+                        Toast.makeText(it.context, GlobalVar.filter.get(position).feedAnimal(seed = String()), Toast.LENGTH_SHORT).show()
+                    }else if(GlobalVar.filter.get(position) is Sapi){
+                        Toast.makeText(it.context, GlobalVar.filter.get(position).feedAnimal(grass = 0), Toast.LENGTH_SHORT).show()
+                    }else if(GlobalVar.filter.get(position) is Kambing){
+                        Toast.makeText(it.context, GlobalVar.filter.get(position).feedAnimal(grass = 0), Toast.LENGTH_SHORT).show()
+                    }
                 }
+            }
+
         }
 
     }
